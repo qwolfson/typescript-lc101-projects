@@ -7,33 +7,59 @@ let spacecraftName: string = 'Determination';
 let speedMph: number = 17500;
 let kilometersToMars: number = 225000000;
 let kilometersToTheMoon: number = 384400;
-let milesPerKilometer: number = 0.621:
+let milesPerKilometer: number = 0.621;
 
 // Part 2: Print Days to Mars
 let milesToMars: number = kilometersToMars*milesPerKilometer
 let hoursToMars: number = milesToMars/speedMph
 let daysToMars: number = hoursToMars/24
-console.log(daysToMars)
+
 
 
 
 // Code an output statement here (use a template literal):
 
-
+console.log(`It will take the ${spacecraftName} ${daysToMars} days to get to Mars.`)
 
 // Part 3: Create a Function ("getDaysToLocation")
 
+function getDaysToLocation(kilometersAway: number): number{
+    let milesAway: number = kilometersAway*milesPerKilometer;
+    let hourToLocation: number = milesAway/speedMph;
+    let daysToLocation: number = hourToLocation/24;
+    return daysToLocation
+}
 
 
 // Move your output statement from part 2 here. Update the template literal to call
 // the function and print the outputs for a Mars trip and a moon trip.
 
 
+console.log(`It will take the ${spacecraftName} ${getDaysToLocation(kilometersToMars)} days to get to Mars.`)
+console.log(`It will take the ${spacecraftName} ${getDaysToLocation(kilometersToTheMoon)} days to get to the moon.`)
 
 
 // Part 4: Create a Spacecraft Class
+class Spacecraft{
+    milesPerKilometer: number = 0.621;
+    name: string;
+    speedMph: number;
 
+    constructor(name: string, speedMph: number) {
+        this.name = name
+        this.speedMph = speedMph
+    }
 
+    getDaysToLocation(kilometersAway: number): number{
+        let milesAway: number = kilometersAway*this.milesPerKilometer;
+        let hoursToLocation: number = milesAway/this.speedMph;
+        return hoursToLocation/24;
+    }
+
+    printDaysToLocation(location: string) {
+        console.log(`It will take the ${this.name} ${getDaysToLocation(kilometersAway)} days to get to ${location}`)
+    }
+}
 
 
 // Create an instance of the class here:
