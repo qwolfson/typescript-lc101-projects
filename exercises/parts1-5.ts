@@ -1,6 +1,8 @@
 // URL for the instructions: 
 // https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/exercises.html 
 
+import { SpaceLocation } from "./SpaceLocation";
+
 
 // Part 1: Declare (5) Variables With Type
 let spacecraftName: string = 'Determination';
@@ -56,8 +58,11 @@ class Spacecraft{
         return hoursToLocation/24;
     }
 
-    printDaysToLocation(location: string) {
-        console.log(`It will take the ${this.name} ${getDaysToLocation(kilometersAway)} days to get to ${location}`)
+    printDaysToLocation(location: SpaceLocation) {
+        console.log(`It will take the ${this.name} ${this.getDaysToLocation(location.kilometersAway)} days to get to ${location.name}`)
+    }
+    kilometersAway(kilometersAway: any) {
+        throw new Error("Method not implemented.");
     }
 }
 
